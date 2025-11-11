@@ -877,14 +877,8 @@ The test suite includes:
 - **Maintainability**: Easy to modify one layer without affecting others
 - **Scalability**: Easy to swap implementations (e.g., different database)
 
-### 5. Why No Hardcoding?
 
-- **Flexibility**: Configuration via environment variables
-- **12-Factor App**: Follows modern deployment practices
-- **Testing**: Easy to override paths for isolated tests
-- **Production-Ready**: Different configs for dev/staging/prod
-
-### 6. Data Model Design
+### 5. Data Model Design
 
 **Schema**:
 ```sql
@@ -900,67 +894,10 @@ CREATE TABLE nodes (
 - **Flexible**: NULL parent_id indicates root nodes
 - **Scalable**: Supports any tree depth and multiple forests
 
-### 7. Error Handling Strategy
+### 6. Error Handling Strategy
 
 - **HTTP Semantics**: Proper status codes (400, 404, 500)
 - **Descriptive Messages**: Clear error messages for debugging
 - **Custom Exceptions**: Domain-specific errors (ValidationError, NodeNotFound)
 - **Defensive Programming**: Catches unexpected errors to prevent crashes
 
-## Further Improvements
-
-### Security Enhancements
-- Authentication/authorization (JWT, API keys)
-- Rate limiting to prevent abuse
-- Input sanitization for XSS prevention
-- HTTPS support with TLS certificates
-
-### Performance Optimizations
-- Database indexing on parent_id for faster queries
-- Connection pooling for concurrent requests
-- Caching for frequently accessed trees
-- Pagination for large forests
-- Lazy loading of deep tree structures
-
-### Feature Additions
-- **PATCH /api/tree/:id** - Update node labels
-- **DELETE /api/tree/:id** - Delete nodes and subtrees
-- **GET /api/tree/:id** - Retrieve a specific subtree
-- **POST /api/tree/bulk** - Batch node creation
-- Search/filter nodes by label
-- Tree statistics (depth, node count, etc.)
-- Export trees as different formats (XML, YAML)
-
-### Production Readiness
-- Async server (asyncio, aiohttp, FastAPI)
-- Structured logging with rotation
-- Health check endpoint
-- Metrics and monitoring (Prometheus)
-- Database migrations system
-- Docker containerization
-- Kubernetes deployment manifests
-- CI/CD pipeline configuration
-
-### Code Quality
-- Code coverage reporting (target >90%)
-- Performance benchmarking
-- Load testing scenarios
-- API documentation (OpenAPI/Swagger)
-- Pre-commit hooks for linting
-
-## License
-
-This project is created as an assessment/demonstration project.
-
-## Author
-
-Created as a coding challenge to demonstrate:
-- Clean architecture principles
-- Python best practices
-- RESTful API design
-- Test-driven development
-- Production-ready code structure
-
----
-
-**Happy tree building! 🌲**
